@@ -1,0 +1,30 @@
+name: Main
+on:
+  - push
+  - pull_request
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Set up Python 3.8
+        uses: actions/setup-python@v1
+        with:
+          python-version: 3.8
+      - name: Set up Poetry
+        uses: abatilo/actions-poetry@v2.0.0
+        with:
+          poetry-version: 1.0.10
+      - name: Install dependencies
+        run: poetry install
+      - name: Lint
+        run: poetry run flake8
+      - name: Test
+        run: poetry run pytest -svv
+      - name: Publish
+        run: poetry publish --build --username $PYPI_USERNAME --password $PYPI_PASSWORD
+        env:
+          PYPI_USERNAME: ${{ secrets.PYPI_USERNAME }}
+          PYPI_PASSWORD: ${{ secrets.PYPI_PASSWORD }}
+        if: ${{ github.event_name == 'push' && github.ref == 'refs/heads/master' }}
