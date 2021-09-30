@@ -3,7 +3,7 @@
 from markupsafe import Markup
 
 HCAPTCHA_HTML = Markup("""<div class="h-captcha" data-sitekey="{site_key}"></div>
-<script defer src="https://hcaptcha.com/1/api.js" async defer></script>
+<script src="https://hcaptcha.com/1/api.js" async defer></script>
 """)
 
 
