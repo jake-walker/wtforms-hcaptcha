@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "wtforms-hcaptcha"
-version = "0.1.1"
+version = "0.1.2"
 description = "Custom WTForms field that handles hCaptcha display and validation."
 authors = ["Jake Walker <hi@jakew.me>"]
 maintainers = ["Jake Walker <hi@jakew.me>"]
