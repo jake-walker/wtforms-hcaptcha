@@ -32,7 +32,10 @@ from wtforms-recaptcha import HcaptchaField
 class MyForm(Form):
     captcha = HcaptchaField(site_key="YOUR_SITE_KEY_HERE", secret_key="YOUR_SECRET_KEY_HERE")
 
-form = MyForm(request.form)
+form = MyForm(request.form, captcha={
+    # note this needs to be edited to get the correct IP address when using a reverse proxy
+    "ip_address": request.remote_addr
+})
 
 if form.validate():
     print("You are not a robot!")
