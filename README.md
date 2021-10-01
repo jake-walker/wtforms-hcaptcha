@@ -26,7 +26,7 @@ This example creates an empty form with just a CAPTCHA field.
 
 ```python
 from wtforms.form import Form
-from wtforms_hcaptcha.fields import HcaptchaField
+from wtforms_hcaptcha import HcaptchaField
 
 class MyForm(Form):
     captcha = HcaptchaField(site_key="YOUR_SITE_KEY_HERE", secret_key="YOUR_SECRET_KEY_HERE")
