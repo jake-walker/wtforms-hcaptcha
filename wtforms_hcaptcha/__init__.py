@@ -1,3 +1,4 @@
 """WTForms hCaptcha."""
-from fields import HcaptchaField
+from wtforms_hcaptcha.fields import HcaptchaField  # noqa: F401
+
 __version__ = '0.1.2'
